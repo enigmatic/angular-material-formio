@@ -1,6 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-card>
-  <mat-formio src="https://examples.form.io/kitchensink" (submit)="onSubmit($event)"></mat-formio>
-  <!--<mat-formio [form]="form" [submission]="submission" (submit)="onSubmit($event)"></mat-formio>-->
-</mat-card>
 
+  <nav>
+    <a routerLink="/formDemo">Dashboard</a>
+    <a routerLink="/formBuilder">Form Builder</a>
+  </nav>
+  <mat-card>
+
+  <router-outlet></router-outlet>
+  </mat-card>
+  

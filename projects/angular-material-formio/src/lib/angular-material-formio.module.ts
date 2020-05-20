@@ -66,7 +66,13 @@ import { FormioFormFieldComponent } from './components/formio-form-field/formio-
 import { LabelComponent } from './components/label/label.component';
 import { MaskDirective } from './directives/mask.directive';
 
+
+import { FormioModule, FormioAppConfig } from 'angular-formio';
+import { MatFormBuilderComponent } from './formbuilder/formbuilder.component';
+
+
 export {
+  MatFormBuilderComponent,
   FormioComponent,
   MaterialButtonComponent,
   MaterialTextfieldComponent,
@@ -105,6 +111,7 @@ export {
 
 @NgModule({
   declarations: [
+    MatFormBuilderComponent,
     FormioComponent,
     MaterialButtonComponent,
     MaterialTextfieldComponent,
@@ -148,6 +155,7 @@ export {
   imports: [
     CommonModule,
     FormsModule,
+    FormioModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatInputModule,
@@ -172,6 +180,7 @@ export {
     DragDropModule
   ],
   exports: [
+    MatFormBuilderComponent,
     FormioComponent,
     FlexLayoutModule,
     MatInputModule,
@@ -238,3 +247,4 @@ export class MatFormioModule {
   }
 }
 export * from './renderer';
+export { FormioAppConfig } from 'angular-formio';

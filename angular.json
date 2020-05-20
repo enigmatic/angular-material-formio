@@ -37,6 +37,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-material-formio"
+    }
+  },
+  "defaultProject": "angular-material-formio",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
