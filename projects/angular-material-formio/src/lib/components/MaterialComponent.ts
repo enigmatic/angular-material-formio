@@ -1,5 +1,5 @@
 import {Component, Input, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit, OnInit} from '@angular/core';
-import FormioComponent from 'formiojs/components/_classes/component/Component.js';
+import FormioComponent from './Base';
 import { FormioControl } from '../FormioControl';
 
 @Component({
@@ -33,14 +33,14 @@ export class MaterialComponent implements AfterViewInit, OnInit {
 
   renderComponents() {}
 
-  onChange() {
+  onChange(keepInputRaw?: boolean) {
     let value = this.getValue();
 
     if (value === undefined || value === null) {
       value = this.instance.emptyValue;
     }
 
-    if (this.input && this.input.nativeElement.mask) {
+    if (this.input && this.input.nativeElement.mask && value && !keepInputRaw) {
       this.input.nativeElement.mask.textMaskInputElement.update(value);
       this.control.setValue(this.input.nativeElement.value);
       value = this.getValue();
@@ -93,10 +93,6 @@ export class MaterialComponent implements AfterViewInit, OnInit {
     if (this.input) {
       // Set the input masks.
       this.instance.setInputMask(this.input.nativeElement);
-    }
-
-    if (this.instance) {
-      this.setDisabled(this.instance.disabled);
     }
   }
 }
